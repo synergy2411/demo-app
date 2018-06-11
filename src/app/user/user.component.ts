@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
 })
 export class UserComponent{
     firstName : string = "Bill";
+    moreInfo(user){
+        alert(`${user.firstName} is working with ${user.company} !! `);
+    }
     user = {
         firstName : "Bill",
         lastName : "Gates",
         company : "Microsoft",
         income : 50000,
         dob : new Date("Dec 21, 1965"),
-        isWorking : true
+        isWorking : true,
+        image : "assets/images/bill.jpg",
+        vote : 120
     }
 }
