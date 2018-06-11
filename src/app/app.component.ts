@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from './model/user';
+import { USER_DATA } from './data/mocks';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  childEmittedEvent(data){
+    this.title = data;
+  }
+  user : User;
+  ngOnInit(){
+    this.user = USER_DATA;
+  }
 }
