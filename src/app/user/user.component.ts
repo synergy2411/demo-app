@@ -43,17 +43,17 @@ export class UserComponent {
         alert(`${user.firstName} is working with ${user.company} !! `);
     }
 
-    constructor(){console.log("Constructor")}
-    ngOnChanges(changes : SimpleChanges){
-        console.log("ngOnChanges")
-        console.log(changes);
-    }
-    ngOnInit(){console.log("ngOnInit")}
-    ngAfterContentInit(){console.log("ngAfterContentInit")}
-    ngAfterContentChecked(){console.log("ngAfterContentChecked")}
-    ngDoCheck(){console.log("ngDoCheck")}
-    ngAfterViewInit(){console.log("ngAfterViewInit")}
-    ngAfterViewChecked(){console.log("ngAfterViewChecked")}
-    ngOnDestroy(){console.log("ngOnDestroy")}
+    // constructor(){console.log("Constructor")}
+    // ngOnChanges(changes : SimpleChanges){
+    //     console.log("ngOnChanges")
+    //     console.log(changes);
+    // }
+    // ngOnInit(){console.log("ngOnInit")}
+    // ngAfterContentInit(){console.log("ngAfterContentInit")}
+    // ngAfterContentChecked(){console.log("ngAfterContentChecked")}
+    // ngDoCheck(){console.log("ngDoCheck")}
+    // ngAfterViewInit(){console.log("ngAfterViewInit")}
+    // ngAfterViewChecked(){console.log("ngAfterViewChecked")}
+    // ngOnDestroy(){console.log("ngOnDestroy")}
     
 }
