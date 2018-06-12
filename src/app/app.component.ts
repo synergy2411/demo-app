@@ -3,6 +3,8 @@ import { User } from './model/user';
 // import { USER_DATA } from './data/mocks';
 import { TranslateService } from '@ngx-translate/core';
 import { DataService } from './service/data.service';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-root',
@@ -24,12 +26,18 @@ export class AppComponent {
 
   users : User[];
   ngOnInit(){
+
+    firebase.initializeApp({
+      apiKey: "AIzaSyA1-o3CRPmhIu9l2cVRk4Y79KrBy6ytcgE",
+      authDomain: "sg2-demo.firebaseapp.com"
+    });
+
     //this.users = USER_DATA;
     //this.users = this.dataService.getUserData();
-    this.dataService.getUserData()
-      .subscribe(
-        people=>this.users = people,      //Handle data
-        (err)=>console.log(err),          //Error 
-        ()=>console.log("Completed!!"));  //Complete function
+    // this.dataService.getUserData()
+    //   .subscribe(
+    //     people=>this.users = people,      //Handle data
+    //     (err)=>console.log(err),          //Error 
+    //     ()=>console.log("Completed!!"));  //Complete function
   }
 }

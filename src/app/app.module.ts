@@ -13,6 +13,8 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { DataService } from './service/data.service';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DataService } from './service/data.service';
     CountryCodePipe,
     FilterPipe,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ObservableDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { DataService } from './service/data.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ DataService ],
+  providers: [ DataService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

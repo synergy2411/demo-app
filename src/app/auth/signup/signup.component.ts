@@ -3,6 +3,7 @@ import { FormControl,
   FormGroup, 
   FormBuilder, 
   Validators } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -28,7 +29,8 @@ export class SignupComponent {
 
   registerForm : FormGroup;
 
-  constructor(private fb : FormBuilder){
+  constructor(private fb : FormBuilder,
+              private authService : AuthService){
     this.registerForm = this.fb.group({
       username : this.username,
       password : this.password
@@ -38,5 +40,7 @@ export class SignupComponent {
   onRegister(){
     alert("Registered!");
     console.log(this.registerForm);
+    this.authService.singup(this.registerForm.value.username,
+            this.registerForm.value.password);
   }
 }
