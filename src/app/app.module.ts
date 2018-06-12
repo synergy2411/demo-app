@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { UnlessDirective } from './directive/unless.directive';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { CountryCodePipe } from './pipe/countrycode.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    PipeDemoComponent,
+    CountryCodePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<h1>
+  Conatct Number : {{ contact_no | countrycode }}
+
+  My Data : {{ myData | async}}
+</h1>
+<hr>
+<br>
+<button (click)="addnewTodo()">Add New Todo</button>
+<br><hr>
+<input type="text" [(ngModel)]="filteredText">
+  <ul class="list-group">
+    <li *ngFor="let todo of todos| filter: filteredText : 'status'" class="list-group-item">
+        {{todo.label}}
+        <span class="badge"> {{ todo.status }}</span>
+    </li>
+  </ul>

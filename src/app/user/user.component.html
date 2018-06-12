@@ -16,9 +16,9 @@
 <li class="well" *ngFor="let user of users; index as i; even as isEven; first as isFirst">
 <div class="row">
     <div class="col-sm-2 col-m-2">
-        #{{ i }} <br>
+        <!-- #{{ i }} <br>
         Is this Even ? {{ isEven }} <br>
-        Is this first ? {{ isFirst }}
+        Is this first ? {{ isFirst }} -->
         <img [src]="user.image" alt="">
         <br>
         <button 
@@ -26,15 +26,21 @@
             (click)="moreInfo(user)">More Info</button>
     </div>
     <div class="col-sm-8 col-md-8">
-        <h1 appHighlight [defaultColor]="myColor"> {{ user.firstName }} {{ user.lastName }}</h1>
+        <h1 appHighlight [defaultColor]="myColor"> 
+            {{ user.firstName | uppercase }} {{ user.lastName | uppercase }}</h1>
+        
         <!-- <p [ngClass]="['feature', 'myClass']"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
-        <p [ngClass]="{ feature : isEven, myClass : isFirst }"> Date of Birth : <span [innerHTML]="user.dob"></span></p>
+        <p [ngClass]="{ feature : isEven, myClass : isFirst }"> 
+            Date of Birth : 
+            <!-- {{ user.dob | date : 'MM/dd/yyyy'}} -->
+            <span [innerHTML]="user.dob | date : 'MM/dd/yyyy'"></span>
+        </p>
         <!-- <p [ngClass]="allClasses"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
         <!-- <p *ngIf="user.isWorking; else ElseTemplate"> 
             Income : {{ user.income }}</p> -->
         
         <p *appUnless="!user.isWorking">
-            Income {{ user.income }}</p>
+            Income {{ user.income | currency : 'EUR' }}</p>
         <ng-template #ElseTemplate>
             <p>{{ user.firstName }} is not working now!</p>
         </ng-template>
