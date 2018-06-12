@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipe/countrycode.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import { SigninComponent } from './auth/signin/signin.component';
     PipeDemoComponent,
     CountryCodePipe,
     FilterPipe,
-    SigninComponent
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
