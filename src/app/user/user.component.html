@@ -1,5 +1,5 @@
 <ng-content></ng-content>
-
+<!-- ng g d directive/unless --spec false -->
 <div class="container well">
     <input type="text" 
         #childCtrl 
@@ -30,9 +30,11 @@
         <!-- <p [ngClass]="['feature', 'myClass']"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
         <p [ngClass]="{ feature : isEven, myClass : isFirst }"> Date of Birth : <span [innerHTML]="user.dob"></span></p>
         <!-- <p [ngClass]="allClasses"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
-        <p *ngIf="user.isWorking; else ElseTemplate"> 
-            Income : {{ user.income }}</p>
-
+        <!-- <p *ngIf="user.isWorking; else ElseTemplate"> 
+            Income : {{ user.income }}</p> -->
+        
+        <p *appUnless="!user.isWorking">
+            Income {{ user.income }}</p>
         <ng-template #ElseTemplate>
             <p>{{ user.firstName }} is not working now!</p>
         </ng-template>
