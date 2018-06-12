@@ -1,7 +1,16 @@
 <h1>
+  
+  Counter in Pipe-Demo Component : {{ dataService.counter }}
+  <button (click)="increase()">Increase</button>
+
+  <br>
+  <hr>
+  
   Conatct Number : {{ contact_no | countrycode }}
 
   My Data : {{ myData | async}}
+
+
 </h1>
 <hr>
 <br>

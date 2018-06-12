@@ -12,11 +12,19 @@ import { FormControl,
 export class SignupComponent {
   username = new FormControl('',[
     Validators.required,
-    Validators.minLength(5)
+    Validators.minLength(5),
+
   ]);
   password = new FormControl('', [
-    Validators.required
+    Validators.required,
+    this.checkExclamation
   ]);
+
+  checkExclamation(input : FormControl){
+    console.log(input);
+      const hasExclamation = input.value.indexOf('!') >= 0;
+      return hasExclamation ? null : { needExclamation : true}
+  }
 
   registerForm : FormGroup;
 

@@ -8,7 +8,7 @@
       name="username"
       [formControl]="username">
 
-      <div [hidden]="username.valid && username.dirty">
+      <div [hidden]="username.valid || username.untouched">
         Some Problem with Username.
         <div [hidden]="!username.hasError('required')">
           Username is mandatory field.
@@ -25,6 +25,17 @@
         class="form-control"
         name="password"
         [formControl]="password">
+
+        <div [hidden]="password.valid || password.untouched">
+            Some Problem with password.
+            <div [hidden]="!password.hasError('required')">
+              password is mandatory field.
+            </div>
+            <div [hidden]="!password.hasError('needExclamation')">
+                  Password should contain Exclamation Mark!
+              </div>
+          </div>
+
     </div>
   <button class="btn btn-warning" 
     (click)="onRegister()">Register </button>

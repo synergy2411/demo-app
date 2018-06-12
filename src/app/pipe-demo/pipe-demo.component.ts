@@ -1,11 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-pipe-demo',
   templateUrl: './pipe-demo.component.html',
-  styleUrls: ['./pipe-demo.component.css']
+  styleUrls: ['./pipe-demo.component.css'],
+  providers : [DataService]
 })
 export class PipeDemoComponent implements OnInit {
+
+  increase(){
+    this.dataService.counter++;
+  }
+  constructor(public dataService : DataService){}
+
   filteredText = '';
   todos = [{
     label : "Some Work",
@@ -31,8 +39,6 @@ export class PipeDemoComponent implements OnInit {
   myData = new Promise((resolve, reject)=>{
     setTimeout(()=>resolve("Data Package!"), 2800);
   })
-
-  constructor() { }
 
   ngOnInit() {
   }
