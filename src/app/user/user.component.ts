@@ -10,23 +10,36 @@ import { Component,
     AfterViewInit,
     AfterViewChecked,
     OnDestroy, 
-    SimpleChanges} from '@angular/core';
+    SimpleChanges,
+    ViewEncapsulation} from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
     selector : 'app-user',
     //template : `<h1>User Component Loaded!!!</h1>`
-    templateUrl : './user.component.html'
+    templateUrl : './user.component.html',
+    // styles :  [``]
+    styleUrls : [`./user.component.css`],
+    encapsulation : ViewEncapsulation.Emulated
 })
 export class UserComponent {
     @Input('xyz') title : string;
-    @Input('user') user : any;
+    @Input('users') users : User[];
     @Output('childEvent') childEvent = new EventEmitter<string>();
+    myColor = "aqua";
+    allClasses = { 
+        feature : true, 
+        myClass : false 
+    }
 
     onkeyup(value){
         this.childEvent.emit(value);
     }
     firstName : string = "Bill";
     moreInfo(user){
+        this.allClasses.feature = false;
+        this.allClasses.myClass = true;
+
         alert(`${user.firstName} is working with ${user.company} !! `);
     }
 

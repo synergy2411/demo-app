@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-
-// https://github.com/synergy2411/demo-app
+import { HighlightDirective } from './directive/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

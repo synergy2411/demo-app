@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './model/user';
 import { USER_DATA } from './data/mocks';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,12 @@ import { USER_DATA } from './data/mocks';
 })
 export class AppComponent {
   title = 'app';
+  
   childEmittedEvent(data){
     this.title = data;
   }
-  user : User;
+  users : User[];
   ngOnInit(){
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
 }
