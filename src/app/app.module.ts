@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './employee/employee.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -26,6 +27,8 @@ import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { LoginGaurdService } from './service/login-gaurd.service';
+import { AnimatedComponent } from './animated/animated.component';
+import { TestableComponent } from './testable/testable.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { LoginGaurdService } from './service/login-gaurd.service';
     PagenotfoundComponent,
     ProductComponent,
     OverviewComponent,
-    SpecificationComponent
+    SpecificationComponent,
+    AnimatedComponent,
+    TestableComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { LoginGaurdService } from './service/login-gaurd.service';
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    EmployeeModule
+    EmployeeModule,
+    BrowserAnimationsModule
   ],
   providers: [ DataService, LoginGaurdService,
     AuthService,
