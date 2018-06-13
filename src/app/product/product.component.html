@@ -1,7 +1,9 @@
 <h1>Products Loaded!</h1>
 
 <ul class="list-unstyled">
-  <li><a [routerLink]="['overview', 5, 'iPhone']">Product Overview</a></li>
+  <li><a [routerLink]="['overview', 5, 'iPhone']" 
+      [queryParams]="['']"
+      >Product Overview</a></li>
   <li><a [routerLink]="['spec']">Product Specification</a></li>
 </ul>
 

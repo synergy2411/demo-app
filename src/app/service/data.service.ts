@@ -22,8 +22,8 @@ export class DataService{
         .subscribe(response=>console.log(response));
     }
     getUserData(){
-        this.httpClient.get<User[]>("https://sg2-demo.firebaseio.com/userdata.json")
-                .subscribe(data=>console.log(data));
+        return this.httpClient.get<User[]>("https://sg2-demo.firebaseio.com/userdata.json")
+               // .subscribe(data=>console.log(data));
 
         // this.http.get("https://sg2-demo.firebaseio.com/userdata.json?auth="+this.authService.getToken())
         //         .map(response=>{

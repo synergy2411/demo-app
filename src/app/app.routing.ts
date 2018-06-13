@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { LoginGaurdService } from './service/login-gaurd.service';
+import { UserComponent } from './user/user.component';
 
 export const APP_ROUTES : Routes = [
     {
@@ -31,6 +32,9 @@ export const APP_ROUTES : Routes = [
         path: 'notfound',
         component : PagenotfoundComponent
     },{
+        path : 'user',
+        component : UserComponent
+    },{
         path : 'product',
         component : ProductComponent,
         children : [{
@@ -40,6 +44,9 @@ export const APP_ROUTES : Routes = [
             path : 'spec',
             component : SpecificationComponent
         }]
+    },{
+        path : 'lazy',
+        loadChildren : 'app/lazy/lazy.module#LazyModule'
     },{
         path : '**',            //localhost:4200/nowhere
         redirectTo : 'notfound',    //localhost:4200/notfound

@@ -13,6 +13,7 @@ import { Component,
     SimpleChanges,
     ViewEncapsulation} from '@angular/core';
 import { User } from '../model/user';
+import { DataService } from '../service/data.service';
 
 @Component({
     selector : 'app-user',
@@ -24,7 +25,7 @@ import { User } from '../model/user';
 })
 export class UserComponent {
     @Input('xyz') title : string;
-    @Input('users') users : User[];
+    users : User[];
     @Output('childEvent') childEvent = new EventEmitter<string>();
     myColor = "aqua";
     allClasses = { 
@@ -43,12 +44,18 @@ export class UserComponent {
         alert(`${user.firstName} is working with ${user.company} !! `);
     }
 
-    // constructor(){console.log("Constructor")}
+    constructor(private dataService : DataService){console.log("Constructor")}
     // ngOnChanges(changes : SimpleChanges){
     //     console.log("ngOnChanges")
     //     console.log(changes);
     // }
-    // ngOnInit(){console.log("ngOnInit")}
+     ngOnInit(){
+        this.dataService.getUserData()
+          .subscribe(
+            people=>this.users = people,      //Handle data
+            (err)=>console.log(err),          //Error 
+            ()=>console.log("Completed!!")); 
+     }
     // ngAfterContentInit(){console.log("ngAfterContentInit")}
     // ngAfterContentChecked(){console.log("ngAfterContentChecked")}
     // ngDoCheck(){console.log("ngDoCheck")}
