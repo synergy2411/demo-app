@@ -16,6 +16,9 @@ export class SigninComponent implements OnInit {
                 form.value.password);
   }
 
+  postUserData(){
+    this.dataService.postUserData();
+  }
   getUserData(){
     this.dataService.getUserData();
   } 

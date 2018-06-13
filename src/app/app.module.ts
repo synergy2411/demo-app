@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { DataService } from './service/data.service';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { AuthService } from './service/auth.service';
+import { AuthInterceptor } from './service/auth.interceptor';
+import { LoggerInterceptor } from './service/logger.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,23 @@ import { AuthService } from './service/auth.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [ DataService, AuthService ],
+  providers: [ DataService, 
+    AuthService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : LoggerInterceptor,
+      multi : true 
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true 
+    }
+      
+     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

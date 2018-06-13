@@ -9,6 +9,7 @@ import 'rxjs/Rx';
 })
 export class ObservableDemoComponent {
   data : any;
+  newdata : any;
   myObs = Observable.create((observer)=>{
     setTimeout(()=>observer.next("First Package"), 1000);
     setTimeout(()=>observer.next("Second Package"), 2000);
@@ -23,8 +24,10 @@ export class ObservableDemoComponent {
 
 
   numbers : number;
-data = Observable.interval(1000) 
-      .subscribe(data=>this.numbers = data);
+  constructor(){
+    Observable.interval(1000).subscribe(data=>this.numbers = data);
+  }
+
   stop(){
     this.data.unsubscribe();
   }
