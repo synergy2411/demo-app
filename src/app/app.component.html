@@ -1,12 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<app-signup></app-signup>
+  <div class="container">
+    <ul class="list-unstyled nav navbar-nav navbar-default">
+     
+        <li  *ngIf="!authService.isAuthenticated()"><a [routerLink]="['signin']">Login</a></li>
+     
+      <li><a [routerLink]="['signup']">Register</a></li>
+      <li><a [routerLink]="['pipedemo']">Pipe Demo</a></li>
+      <li><a [routerLink]="['obsdemo']">Observables Demo</a></li>
+      <li><a [routerLink]="['product']">Product</a></li>
+    </ul>
+  </div>
 
-<app-signin></app-signin>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  
+
+
+<!-- <app-signup></app-signup>
+
+<app-signin></app-signin> -->
 
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
-<app-observable-demo></app-observable-demo>
+<!-- <app-observable-demo></app-observable-demo> -->
 
 Counter in App Template : {{ dataService.counter }}
 <button (click)="increase()">Increase</button>

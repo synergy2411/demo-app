@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -18,6 +19,12 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
 import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './service/auth.interceptor';
 import { LoggerInterceptor } from './service/logger.interceptor';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { APP_ROUTES } from './app.routing';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
+import { LoginGaurdService } from './service/login-gaurd.service';
 
 @NgModule({
   declarations: [
@@ -30,16 +37,21 @@ import { LoggerInterceptor } from './service/logger.interceptor';
     FilterPipe,
     SigninComponent,
     SignupComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    PagenotfoundComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ DataService, 
+  providers: [ DataService, LoginGaurdService,
     AuthService,
     {
       provide : HTTP_INTERCEPTORS,

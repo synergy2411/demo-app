@@ -15,7 +15,7 @@
 <div class="container">
 <li class="well" *ngFor="let user of users; index as i; even as isEven; first as isFirst">
 <div class="row">
-    <div class="col-sm-2 col-m-2">
+    <div class="col-sm-4 col-md-2 xs-col-6">
         <!-- #{{ i }} <br>
         Is this Even ? {{ isEven }} <br>
         Is this first ? {{ isFirst }} -->
@@ -32,7 +32,7 @@
         <!-- <p [ngClass]="['feature', 'myClass']"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
         <p [ngClass]="{ feature : isEven, myClass : isFirst }"> 
             Date of Birth : 
-            <!-- {{ user.dob | date : 'MM/dd/yyyy'}} -->
+            <!-- {{ user.dob | date : 'MM/dd/yyyy' }} -->
             <span [innerHTML]="user.dob | date : 'MM/dd/yyyy'"></span>
         </p>
         <!-- <p [ngClass]="allClasses"> Date of Birth : <span [innerHTML]="user.dob"></span></p> -->

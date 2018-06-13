@@ -4,6 +4,7 @@ import { User } from './model/user';
 import { TranslateService } from '@ngx-translate/core';
 import { DataService } from './service/data.service';
 import * as firebase from 'firebase';
+import { AuthService } from './service/auth.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ import * as firebase from 'firebase';
 })
 export class AppComponent {
   title = 'app';
-  constructor(public dataService : DataService){}
+  constructor(public dataService : DataService,
+            public authService : AuthService){}
   
   increase(){
     this.dataService.counter++;
